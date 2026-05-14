@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 app.use((req, res) => res.status(404).json({ ok: false, message: 'Ruta no encontrada' }));
 
 app.listen(PORT, () => {
-  console.log(`\n Servidor Nova Salud corriendo en http://localhost:${PORT}`);
+  console.log(`\n Servidor SaludPlus corriendo en http://localhost:${PORT}`);
   console.log(`API disponible en   http://localhost:${PORT}/api`);
   console.log(`Frontend en         http://localhost:${PORT}\n`);
 });

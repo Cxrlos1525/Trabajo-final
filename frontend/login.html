@@ -3,41 +3,228 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nova Salud — Acceso</title>
+  <title>SaludPlus — Acceso</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Segoe UI',system-ui,Arial,sans-serif;min-height:100vh;display:flex;
-         background:linear-gradient(135deg,#1a3a5c 0%,#2563a8 60%,#0ea5e9 100%);}
-    .login-wrap{margin:auto;width:100%;max-width:400px;padding:24px;}
-    .card{background:#fff;border-radius:10px;padding:38px 34px;box-shadow:0 20px 60px rgba(0,0,0,.22);}
-    .logo{text-align:center;margin-bottom:30px;}
-    .logo-circle{width:60px;height:60px;background:#1a3a5c;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px;}
-    .logo-circle i{color:#fff;font-size:26px;}
-    .logo h1{color:#1a3a5c;font-size:22px;font-weight:800;letter-spacing:-.3px;}
-    .logo p{color:#64748b;font-size:13px;margin-top:4px;}
-    .field{margin-bottom:16px;}
-    .field label{font-size:12px;font-weight:600;color:#64748b;display:block;margin-bottom:5px;}
-    .input-wrap{position:relative;}
-    .input-wrap i{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:#94a3b8;font-size:14px;}
-    .input-wrap input{width:100%;padding:10px 12px 10px 34px;border:1px solid #e2e8f0;border-radius:6px;font-size:14px;outline:none;transition:border .2s,box-shadow .2s;color:#1e293b;}
-    .input-wrap input:focus{border-color:#2563a8;box-shadow:0 0 0 3px rgba(37,99,168,.12);}
-    .btn{width:100%;padding:11px;background:#1a3a5c;color:#fff;border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
-    .btn:hover{background:#2563a8;}
-    .btn:disabled{background:#94a3b8;cursor:not-allowed;}
-    .error-msg{background:#fee2e2;color:#991b1b;padding:10px 14px;border-radius:6px;font-size:13px;margin-bottom:16px;display:none;border-left:3px solid #dc2626;}
-    .hint-box{background:#f1f5f9;border-radius:6px;padding:12px 14px;margin-top:18px;font-size:11px;color:#64748b;}
-    .hint-box strong{display:block;margin-bottom:4px;color:#475569;}
-    .hint-box code{background:#e2e8f0;padding:1px 5px;border-radius:3px;font-family:monospace;}
+   :root {
+  --primary:   #111827;
+  --primary-l: #1f2937;
+  --accent:    #14b8a6;
+
+  --success:   #10b981;
+  --warning:   #fbbf24;
+  --danger:    #f43f5e;
+
+  --info:      #6366f1;
+
+  --gray-1:    #f9fafb;
+  --gray-2:    #e5e7eb;
+  --gray-3:    #9ca3af;
+
+  --dark:      #0b1220;
+  --white:     #ffffff;
+
+  --shadow:    0 2px 10px rgba(0,0,0,0.06);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.10);
+
+  --radius:    12px;
+}
+
+/* ===== BASE ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, var(--dark), var(--primary));
+}
+
+/* ===== WRAP ===== */
+.login-wrap {
+  width: 100%;
+  max-width: 380px;
+  padding: 20px;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+
+  padding: 34px 28px;
+
+  box-shadow: var(--shadow-md);
+}
+
+/* ===== LOGO ===== */
+.logo {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.logo-circle {
+  width: 56px;
+  height: 56px;
+
+  background: var(--primary);
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 10px auto;
+}
+
+.logo-circle i {
+  color: var(--white);
+  font-size: 22px;
+}
+
+.logo h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.logo p {
+  font-size: 12px;
+  color: var(--gray-3);
+  margin-top: 4px;
+}
+
+/* ===== FIELD ===== */
+.field {
+  margin-bottom: 14px;
+}
+
+.field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary-l);
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* ===== INPUT ===== */
+.input-wrap {
+  position: relative;
+}
+
+.input-wrap i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  color: var(--gray-3);
+  font-size: 14px;
+}
+
+.input-wrap input {
+  width: 100%;
+  padding: 10px 10px 10px 34px;
+
+  border: 1px solid var(--gray-2);
+  border-radius: 10px;
+
+  font-size: 14px;
+  color: var(--primary);
+
+  outline: none;
+
+  transition: 0.2s ease;
+}
+
+.input-wrap input:focus {
+  border-color: var(--accent);
+}
+
+/* ===== BUTTON ===== */
+.btn {
+  width: 100%;
+  padding: 11px;
+
+  background: var(--primary);
+  color: var(--white);
+
+  border: none;
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--primary-l);
+}
+
+/* ===== ERROR ===== */
+.error-msg {
+  background: #fee2e2;
+  color: var(--danger);
+
+  padding: 10px;
+  border-radius: 10px;
+
+  font-size: 13px;
+
+  margin-bottom: 12px;
+
+  border-left: 3px solid var(--danger);
+}
+
+/* ===== HINT ===== */
+.hint-box {
+  background: var(--gray-1);
+  border: 1px solid var(--gray-2);
+
+  border-radius: 10px;
+  padding: 12px;
+
+  margin-top: 16px;
+
+  font-size: 11px;
+  color: var(--gray-3);
+}
+
+.hint-box strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--primary);
+}
+
+.hint-box code {
+  background: var(--gray-2);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family: monospace;
+}
   </style>
 </head>
 <body>
 <div class="login-wrap">
   <div class="card">
     <div class="logo">
-      <div class="logo-circle"><i class="fa-solid fa-pills"></i></div>
-      <h1>Nova Salud</h1>
-      <p>Sistema de Gestión de Botica</p>
+      <div class="logo-circle">
+        <i class="fa-solid fa-prescription-bottle-medical"></i>
+      </div>
+
+      <h1>SaludPlus</h1>
+      <p>Sistema de Gestión</p>
     </div>
     <div class="error-msg" id="errMsg"></div>
     <div class="field">
